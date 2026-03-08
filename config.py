@@ -4,13 +4,25 @@
 # words, and themes. Easy to edit in one place.
 # ─────────────────────────────────────────────
 
-# ── Fonts (Windows paths) ──────────────────────
-FONTS = {
-    "bold":   "C:/Windows/Fonts/georgiab.ttf",
-    "italic": "C:/Windows/Fonts/georgiai.ttf",
-    "reg":    "C:/Windows/Fonts/georgiai.ttf",
-    "sans":   "C:/Windows/Fonts/trebuc.ttf",
-}
+import platform
+
+# ── Fonts (auto-detect Windows or Linux) ──────
+if platform.system() == "Windows":
+    # Your local PC
+    FONTS = {
+        "bold":   "C:/Windows/Fonts/georgiab.ttf",
+        "italic": "C:/Windows/Fonts/georgiai.ttf",
+        "reg":    "C:/Windows/Fonts/georgiai.ttf",
+        "sans":   "C:/Windows/Fonts/trebuc.ttf",
+    }
+else:
+    # Linux (Render server)
+    FONTS = {
+        "bold":   "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+        "italic": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+        "reg":    "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+        "sans":   "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    }
 
 # ── Empowerment words ──────────────────────────
 WORDS = [
