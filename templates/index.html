@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Day Card Generator ✨</title>
+  <style>
+    /* ── Page ── */
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #f0eaec;
+      font-family: Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 20px 80px;
+      background-image: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,75,110,0.09) 0%, transparent 70%);
+    }
+
+    .badge {
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: #ff4b6e;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 60px);
+      font-style: italic;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 40px rgba(255,75,110,0.35);
+    }
+
+    .subtitle {
+      color: rgba(240,234,236,0.4);
+      font-size: 15px;
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+
+    /* ── Form ── */
+    form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,75,110,0.2);
+      border-radius: 8px;
+      padding: 40px 44px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    label, .field-label {
+      display: block;
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #ff4b6e;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,75,110,0.25);
+      border-radius: 6px;
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 26px;
+      font-style: italic;
+      padding: 14px 18px;
+      outline: none;
+      margin-bottom: 28px;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus { border-color: #ff4b6e; }
+    input[type="text"]::placeholder { color: rgba(255,255,255,0.2); }
+
+    /* ── Theme radio buttons ── */
+    .themes {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .themes input[type="radio"] { display: none; }
+
+    .theme-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 11px 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.45);
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 0;
+      transition: all 0.2s;
+    }
+    .theme-btn:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .themes input[type="radio"]:checked + .theme-btn {
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    /* ── Submit ── */
+    button[type="submit"] {
+      width: 100%;
+      padding: 17px;
+      background: linear-gradient(135deg, #ff4b6e, #c2185b);
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(200,50,100,0.35);
+    }
+    button[type="submit"]:hover { opacity: 0.88; }
+
+    /* ── Result ── */
+    .result {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .result-label {
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(240,234,236,0.35);
+    }
+    .result img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255,75,110,0.2);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.55), 0 0 50px rgba(255,75,110,0.07);
+    }
+
+    /* ── Download ── */
+    .download-btn {
+      display: inline-block;
+      padding: 14px 42px;
+      border: 1px solid #ff4b6e;
+      border-radius: 50px;
+      color: #ff4b6e;
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .download-btn:hover { background: rgba(255,75,110,0.08); }
+  </style>
+</head>
+<body>
+
+  <div class="badge">✦ International Women's Day 2026 ✦</div>
+  <h1>Card Generator</h1>
+  <p class="subtitle">Type a name. Receive a card worth sharing.</p>
+
+  <form method="GET" action="/result">
+
+    <label for="name">Her Name</label>
+    <input type="text" id="name" name="name"
+           placeholder="e.g. Sofia, Amara, Leila…"
+           maxlength="24" value="{{ name }}" required />
+
+    <p class="field-label">Card Theme</p>
+    <div class="themes">
+
+      <input type="radio" id="rose"       name="theme" value="rose"
+        {{ 'checked' if theme == 'rose' else '' }}>
+      <label for="rose" class="theme-btn">
+        <span class="swatch" style="background:#ff4b6e"></span>Rose
+      </label>
+
+      <input type="radio" id="gold"       name="theme" value="gold"
+        {{ 'checked' if theme == 'gold' else '' }}>
+      <label for="gold" class="theme-btn">
+        <span class="swatch" style="background:#dcaa3c"></span>Gold
+      </label>
+
+      <input type="radio" id="mauve"      name="theme" value="mauve"
+        {{ 'checked' if theme == 'mauve' else '' }}>
+      <label for="mauve" class="theme-btn">
+        <span class="swatch" style="background:#c382af"></span>Mauve
+      </label>
+
+      <input type="radio" id="champagne"  name="theme" value="champagne"
+        {{ 'checked' if theme == 'champagne' else '' }}>
+      <label for="champagne" class="theme-btn">
+        <span class="swatch" style="background:#d2af6e"></span>Champagne
+      </label>
+
+    </div>
+
+    <button type="submit">✦ Generate Her Card</button>
+
+  </form>
+
+  {% if card_data %}
+  <div class="result">
+    <p class="result-label">her card ✦</p>
+    <img src="data:image/png;base64,{{ card_data }}"
+         alt="Women's Day card for {{ name }}" />
+    <a class="download-btn"
+       href="/download?name={{ name }}&theme={{ theme }}"
+       download="womens_day_{{ name }}.png">
+      ↓ Download Card
+    </a>
+  </div>
+  {% endif %}
+
+</body>
+</html>
